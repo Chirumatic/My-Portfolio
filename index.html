@@ -3,229 +3,631 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Drichiru Faith - Software Engineer specializing in AI, Fintech, Data Engineering and Analytics" />
     <title>Drichiru Faith — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root{
-            --bg:#0f1724;
-            --card:#0b1220;
-            --muted:#9aa4b2;
-            --accent:#4f9ef1;
-            --glass: rgba(255,255,255,0.04);
-            --radius:12px;
-            --max:1100px;
-            color-scheme: dark;
+            --bg-primary:#faf8f5;
+            --bg-secondary:#f5f2ed;
+            --bg-card:#ffffff;
+            --text-primary:#2c2416;
+            --text-secondary:#5a5144;
+            --text-muted:#8a7f6f;
+            --accent-gold:#c9a961;
+            --accent-rose:#d4a5a5;
+            --accent-sage:#8b9d83;
+            --border-subtle:rgba(201,169,97,0.2);
+            --shadow-sm: 0 2px 8px rgba(44,36,22,0.08);
+            --shadow-md: 0 8px 24px rgba(44,36,22,0.12);
+            --shadow-lg: 0 16px 40px rgba(44,36,22,0.15);
+            --radius:16px;
+            --max:1200px;
         }
 
-        *{box-sizing:border-box}
-        html,body{height:100%}
-        body{
+        *{
+            box-sizing:border-box;
             margin:0;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: linear-gradient(180deg, #071028 0%, #0b1524 100%);
-            color:#e6eef8;
+            padding:0;
+        }
+        
+        html{
+            scroll-behavior:smooth;
+            font-size:16px;
+        }
+        
+        html,body{height:100%}
+        
+        body{
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 50%, #fdfbf7 100%);
+            color:var(--text-primary);
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
-            line-height:1.45;
-            padding:32px;
-            display:flex;
-            justify-content:center;
+            line-height:1.7;
+            padding:0;
+            position:relative;
+            overflow-x:hidden;
         }
-
-        .wrap{
-            width:100%;
+        
+        body::before{
+            content:'';
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(201,169,97,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212,165,165,0.05) 0%, transparent 50%);
+            pointer-events:none;
+            z-index:0;
+        }
+        
+        body::after{
+            content:'';
+            position:fixed;
+            top:-50%;
+            right:-10%;
+            width:600px;
+            height:600px;
+            background:radial-gradient(circle, rgba(201,169,97,0.08) 0%, transparent 70%);
+            border-radius:50%;
+            pointer-events:none;
+            animation:float 25s ease-in-out infinite;
+            z-index:0;
+        }
+        
+        @keyframes float{
+            0%,100%{transform:translate(0,0) scale(1)}
+            33%{transform:translate(-30px,50px) scale(1.1)}
+            66%{transform:translate(30px,-30px) scale(0.9)}
+        }
+        
+        @keyframes fadeInUp{
+            from{opacity:0;transform:translateY(30px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+        
+        @keyframes slideIn{
+            from{opacity:0;transform:translateX(-30px)}
+            to{opacity:1;transform:translateX(0)}
+        }
+        
+        .container{
             max-width:var(--max);
+            margin:0 auto;
+            padding:40px 24px;
+            position:relative;
+            z-index:1;
         }
 
+        /* Typography */
+        h1,h2,h3,h4{
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight:700;
+            letter-spacing:0.5px;
+        }
+
+        /* Header */
         header{
             display:flex;
             align-items:center;
             justify-content:space-between;
-            gap:16px;
-            margin-bottom:28px;
+            padding:24px 0 48px;
+            animation:slideIn 0.8s ease-out;
+            border-bottom:2px solid var(--border-subtle);
+            margin-bottom:48px;
         }
 
         .brand{
             display:flex;
-            gap:12px;
+            gap:20px;
             align-items:center;
         }
 
-       .avatar{
-    width:64px;
-    height:64px;
-    border-radius:12px;    
-    box-shadow:0 6px 18px rgba(79,158,241,0.12);
-    flex-shrink:0;
-    object-fit: cover; 
-    display: block; 
-}
-
-        .brand h1{
-            font-size:18px;
-            margin:0;
-            letter-spacing:0.2px;
+        .avatar{
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            border:3px solid var(--accent-gold);
+            box-shadow:0 8px 24px rgba(201,169,97,0.25), 0 0 0 8px rgba(201,169,97,0.08);
+            object-fit:cover;
+            transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .brand p{margin:0;color:var(--muted);font-size:13px}
+        
+        .avatar:hover{
+            transform:scale(1.08) rotate(5deg);
+            box-shadow:0 12px 32px rgba(201,169,97,0.35), 0 0 0 12px rgba(201,169,97,0.12);
+        }
+
+        .brand-text h1{
+            font-size:28px;
+            margin:0 0 4px 0;
+            background:linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-rose) 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+        
+        .brand-text p{
+            font-size:14px;
+            color:var(--text-secondary);
+            font-weight:500;
+            letter-spacing:0.5px;
+        }
 
         nav{
             display:flex;
-            gap:12px;
-            align-items:center;
-        }
-        nav a{
-            color:var(--muted);
-            text-decoration:none;
-            font-weight:600;
-            font-size:13px;
-            padding:8px 12px;
-            border-radius:10px;
-        }
-        nav a.primary{
-            background:linear-gradient(90deg,var(--accent),#2ac3b6);
-            color:#021331;
-            box-shadow:0 6px 18px rgba(79,158,241,0.08);
-        }
-
-        main{
-            display:grid;
-            grid-template-columns: 1fr 360px;
-            gap:20px;
-            align-items:start;
-        }
-
-        @media (max-width:980px){
-            main{grid-template-columns:1fr}
-            header{flex-direction:column;align-items:flex-start;gap:12px}
-        }
-
-        .panel{
-            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border-radius:var(--radius);
-            padding:20px;
-            box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-            border:1px solid rgba(255,255,255,0.02);
-        }
-
-        .hero{
-            display:flex;
-            gap:20px;
-            align-items:flex-start;
-        }
-
-        .hero .intro{
-            flex:1;
-        }
-        .hero h2{
-            margin:0 0 8px 0;
-            font-size:24px;
-            line-height:1.1;
-        }
-        .hero p.lead{margin:0 0 16px 0;color:var(--muted)}
-        .cta{
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
-        }
-        .btn{
-            background:var(--glass);
-            color:var(--muted);
-            border:1px solid rgba(255,255,255,0.03);
-            padding:10px 14px;
-            border-radius:10px;
-            text-decoration:none;
-            font-weight:700;
-            font-size:13px;
-            display:inline-flex;
             gap:8px;
             align-items:center;
         }
-        .btn.primary{
-            background:linear-gradient(90deg,var(--accent),#2ac3b6);
-            color:#021331;
-            border:0;
-            box-shadow:0 8px 20px rgba(79,158,241,0.08);
+        
+        nav a{
+            color:var(--text-secondary);
+            text-decoration:none;
+            font-weight:600;
+            font-size:14px;
+            padding:10px 20px;
+            border-radius:12px;
+            transition:all 0.3s ease;
+            position:relative;
+            letter-spacing:0.3px;
+        }
+        
+        nav a::before{
+            content:'';
+            position:absolute;
+            bottom:0;
+            left:50%;
+            width:0;
+            height:2px;
+            background:var(--accent-gold);
+            transition:all 0.3s ease;
+            transform:translateX(-50%);
+        }
+        
+        nav a:hover{
+            color:var(--text-primary);
+            background:rgba(201,169,97,0.08);
+        }
+        
+        nav a:hover::before{
+            width:60%;
+        }
+        
+        nav a.primary{
+            background:linear-gradient(135deg, var(--accent-gold), #d4b574);
+            color:#ffffff;
+            font-weight:700;
+            box-shadow:0 4px 16px rgba(201,169,97,0.3);
+        }
+        
+        nav a.primary:hover{
+            box-shadow:0 6px 24px rgba(201,169,97,0.45);
+            transform:translateY(-2px);
+        }
+        
+        nav a.primary::before{
+            display:none;
         }
 
-        /* Projects list */
+        /* Main Layout */
+        main{
+            display:grid;
+            grid-template-columns:1fr 380px;
+            gap:32px;
+            align-items:start;
+        }
+
+        @media (max-width:1024px){
+            main{grid-template-columns:1fr}
+            header{flex-direction:column;align-items:flex-start;gap:20px}
+            nav{flex-wrap:wrap}
+        }
+
+        /* Panels */
+        .panel{
+            background:var(--bg-card);
+            backdrop-filter:blur(10px);
+            border-radius:var(--radius);
+            padding:32px;
+            box-shadow:var(--shadow-md);
+            border:1px solid var(--border-subtle);
+            transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position:relative;
+            overflow:hidden;
+        }
+        
+        .panel::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:-100%;
+            width:100%;
+            height:100%;
+            background:linear-gradient(90deg, transparent, rgba(201,169,97,0.05), transparent);
+            transition:left 0.6s ease;
+        }
+        
+        .panel:hover::before{
+            left:100%;
+        }
+        
+        .panel:hover{
+            transform:translateY(-4px);
+            box-shadow:var(--shadow-lg);
+            border-color:rgba(201,169,97,0.35);
+        }
+
+        /* Hero Section */
+        .hero{
+            margin-bottom:32px;
+        }
+        
+        .hero h2{
+            font-size:42px;
+            line-height:1.2;
+            margin:0 0 16px 0;
+            background:linear-gradient(135deg, var(--text-primary) 0%, var(--accent-rose) 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+        }
+        
+        .hero .lead{
+            font-size:18px;
+            line-height:1.8;
+            color:var(--text-secondary);
+            margin:0 0 24px 0;
+        }
+        
+        .section-divider{
+            height:2px;
+            background:linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin:24px 0;
+            opacity:0.4;
+        }
+        
         .section-title{
             display:flex;
             justify-content:space-between;
             align-items:center;
+            margin-bottom:20px;
+        }
+        
+        .section-title h3{
+            font-size:24px;
+            margin:0;
+            color:var(--text-primary);
+        }
+        
+        .section-title .badge{
+            font-size:12px;
+            padding:6px 12px;
+            background:rgba(201,169,97,0.15);
+            color:var(--accent-gold);
+            border-radius:20px;
+            font-weight:600;
+            letter-spacing:0.5px;
+            text-transform:uppercase;
+            border:1px solid rgba(201,169,97,0.25);
+        }
+
+        /* Buttons */
+        .cta{
+            display:flex;
             gap:12px;
-            margin-bottom:12px;
+            flex-wrap:wrap;
+            margin-top:24px;
         }
-        .grid{
-            display:grid;
-            gap:12px;
-        }
-        .projects{
-            grid-template-columns:repeat(1,1fr);
-        }
-        .card{
-            background:linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.01));
+        
+        .btn{
+            background:var(--bg-secondary);
+            color:var(--text-secondary);
+            border:1px solid var(--border-subtle);
+            padding:12px 24px;
             border-radius:12px;
-            padding:14px;
-            border:1px solid rgba(255,255,255,0.02);
+            text-decoration:none;
+            font-weight:600;
+            font-size:14px;
+            display:inline-flex;
+            gap:8px;
+            align-items:center;
+            transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor:pointer;
+            letter-spacing:0.3px;
         }
-        .card h3{margin:0 0 6px 0;font-size:16px}
-        .card p{margin:0;color:var(--muted);font-size:14px}
+        
+        .btn:hover{
+            background:rgba(201,169,97,0.12);
+            color:var(--text-primary);
+            transform:translateY(-2px);
+            box-shadow:var(--shadow-sm);
+            border-color:var(--accent-gold);
+        }
+        
+        .btn.primary{
+            background:linear-gradient(135deg, var(--accent-gold), #d4b574);
+            color:#ffffff;
+            border:none;
+            font-weight:700;
+            box-shadow:0 8px 24px rgba(201,169,97,0.25);
+        }
+        
+        .btn.primary:hover{
+            box-shadow:0 12px 32px rgba(201,169,97,0.4);
+            transform:translateY(-3px);
+        }
+
+        /* Project Cards */
+        .projects{
+            display:grid;
+            gap:20px;
+        }
+        
+        .card{
+            background:var(--bg-card);
+            border-radius:14px;
+            padding:24px;
+            border:1px solid var(--border-subtle);
+            transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor:pointer;
+            position:relative;
+            overflow:hidden;
+        }
+        
+        .card::after{
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            height:3px;
+            background:linear-gradient(90deg, var(--accent-gold), var(--accent-rose));
+            transform:scaleX(0);
+            transition:transform 0.4s ease;
+        }
+        
+        .card:hover::after{
+            transform:scaleX(1);
+        }
+        
+        .card:hover{
+            background:var(--bg-secondary);
+            border-color:rgba(201,169,97,0.5);
+            transform:translateX(8px);
+            box-shadow:var(--shadow-md);
+        }
+        
+        .card h3{
+            margin:0 0 12px 0;
+            font-size:20px;
+            color:var(--accent-gold);
+            transition:color 0.3s ease;
+        }
+        
+        .card:hover h3{
+            color:var(--accent-rose);
+        }
+        
+        .card p{
+            margin:0;
+            color:var(--text-secondary);
+            font-size:15px;
+            line-height:1.7;
+        }
 
         .meta{
             display:flex;
-            gap:10px;
-            margin-top:10px;
-            color:var(--muted);
-            font-size:13px;
+            gap:8px;
+            margin-top:16px;
             flex-wrap:wrap;
         }
+        
         .tag{
-            background:rgba(255,255,255,0.02);
-            padding:6px 8px;
+            background:rgba(201,169,97,0.12);
+            padding:6px 12px;
             border-radius:8px;
             font-weight:600;
             font-size:12px;
+            color:var(--accent-gold);
+            border:1px solid rgba(201,169,97,0.25);
+            transition:all 0.3s ease;
+            letter-spacing:0.3px;
+        }
+        
+        .tag:hover{
+            background:rgba(201,169,97,0.2);
+            border-color:rgba(201,169,97,0.45);
+            transform:translateY(-2px);
         }
 
-        aside .panel + .panel{margin-top:16px}
+        /* Sidebar */
+        aside .panel + .panel{
+            margin-top:24px;
+        }
+        
+        aside h3{
+            font-size:20px;
+            margin:0 0 20px 0;
+            color:var(--accent-gold);
+        }
+        
         .stack{
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+        
+        .skill{
+            background:linear-gradient(135deg, rgba(201,169,97,0.12), rgba(212,165,165,0.1));
+            padding:10px 16px;
+            border-radius:24px;
+            font-weight:600;
+            font-size:13px;
+            color:var(--text-secondary);
+            border:1px solid var(--border-subtle);
+            transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor:default;
+            letter-spacing:0.3px;
+        }
+        
+        .skill:hover{
+            background:linear-gradient(135deg, rgba(201,169,97,0.25), rgba(212,165,165,0.2));
+            color:var(--accent-gold);
+            border-color:rgba(201,169,97,0.45);
+            transform:translateY(-3px) scale(1.05);
+            box-shadow:var(--shadow-sm);
+        }
+
+        /* Timeline */
+        .timeline{
+            display:flex;
+            flex-direction:column;
+            gap:16px;
+        }
+        
+        .timeline .item{
+            padding:20px;
+            border-radius:12px;
+            background:var(--bg-secondary);
+            border-left:3px solid var(--accent-gold);
+            border-right:1px solid var(--border-subtle);
+            border-top:1px solid var(--border-subtle);
+            border-bottom:1px solid var(--border-subtle);
+            transition:all 0.3s ease;
+        }
+        
+        .timeline .item:hover{
+            background:var(--bg-card);
+            border-left-color:var(--accent-rose);
+            transform:translateX(4px);
+            box-shadow:var(--shadow-sm);
+        }
+        
+        .timeline .item strong{
+            display:block;
+            color:var(--text-primary);
+            font-size:16px;
+            margin-bottom:8px;
+        }
+        
+        .timeline .item .small{
+            color:var(--text-muted);
+            font-size:14px;
+            line-height:1.6;
+        }
+
+        /* Form */
+        input, textarea{
+            width:100%;
+            padding:14px 16px;
+            border-radius:12px;
+            border:1px solid var(--border-subtle);
+            background:var(--bg-secondary);
+            color:var(--text-primary);
+            font-size:14px;
+            transition:all 0.3s ease;
+            font-family:inherit;
+        }
+        
+        input:focus, textarea:focus{
+            outline:none;
+            border-color:var(--accent-gold);
+            background:var(--bg-card);
+            box-shadow:0 0 0 3px rgba(201,169,97,0.12);
+        }
+        
+        input::placeholder, textarea::placeholder{
+            color:var(--text-muted);
+        }
+        
+        textarea{
+            resize:vertical;
+            min-height:120px;
+        }
+
+        /* Footer */
+        footer{
+            margin-top:64px;
+            padding-top:32px;
+            border-top:2px solid var(--border-subtle);
+            text-align:center;
+            color:var(--text-muted);
+            font-size:14px;
+        }
+
+        /* Utilities */
+        .muted{color:var(--text-muted)}
+        .small{font-size:14px}
+        
+        #formStatus{
+            padding:12px 16px;
+            border-radius:10px;
+            font-size:14px;
+            font-weight:600;
+            display:none;
+        }
+        
+        .snapshot-grid{
+            display:grid;
+            gap:16px;
+            margin-top:16px;
+        }
+        
+        .snapshot-item{
+            padding:12px;
+            background:var(--bg-secondary);
+            border-radius:10px;
+            border-left:2px solid var(--accent-gold);
+        }
+        
+        .snapshot-item strong{
+            display:block;
+            color:var(--accent-gold);
+            font-size:13px;
+            margin-bottom:4px;
+            text-transform:uppercase;
+            letter-spacing:0.5px;
+        }
+        
+        .snapshot-item p{
+            color:var(--text-secondary);
+            font-size:14px;
+            margin:0;
+        }
+        
+        .interests-list{
             display:flex;
             gap:8px;
             flex-wrap:wrap;
+            margin-top:12px;
         }
-        .skill{
-            background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            padding:8px 10px;
-            border-radius:999px;
-            font-weight:700;
+        
+        .interest-badge{
+            padding:8px 14px;
+            background:rgba(201,169,97,0.1);
+            border:1px solid rgba(201,169,97,0.25);
+            border-radius:20px;
             font-size:13px;
-            color:var(--muted);
-            border:1px solid rgba(255,255,255,0.02);
+            color:var(--text-secondary);
+            font-weight:500;
         }
-
-        footer{
-            margin-top:28px;
-            text-align:center;
-            color:var(--muted);
-            font-size:13px;
-        }
-
-        /* small helpers */
-        .muted{color:var(--muted)}
-        .small{font-size:13px}
-        .timeline{display:flex;flex-direction:column;gap:10px}
-        .timeline .item{padding:10px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
-        a.link{color:var(--accent);text-decoration:none;font-weight:700}
     </style>
 </head>
 <body>
-    <div class="wrap">
+    <div class="container">
         <header>
             <div class="brand">
-    <img src="faith.jpg" alt="Drichiru Faith profile photo" class="avatar" /> <div>
-        <h1>Drichiru Faith</h1>
-        <p>Rising technologist • AI & Fintech • Software Engineer</p>
-    </div>
-</div>
+                <img src="faith.jpg" alt="Drichiru Faith" class="avatar" />
+                <div class="brand-text">
+                    <h1>Drichiru Faith</h1>
+                    <p>Rising technologist • AI & Fintech • Software Engineer • Data Analytics</p>
+                </div>
+            </div>
 
             <nav>
                 <a href="#about">About</a>
@@ -238,48 +640,46 @@
         <main>
             <section>
                 <div class="panel hero" id="about">
-                    <div class="intro">
-                        <h2>Hi — I'm Drichiru Faith</h2>
-                        <p class="lead">A technologist and innovation enthusiast focused on software development, research, and building inclusive fintech solutions. Currently studying BBA (AI & Finance) at Nexford University.</p>
+                    <h2>Hi — I'm Drichiru Faith</h2>
+                    <p class="lead">A technologist and innovation enthusiast focused on software development, data engineering, analytics, and building inclusive fintech solutions. Currently studying BBA (AI & Finance) at Nexford University.</p>
 
-                        <div class="section-title" style="margin-top:12px;">
-                            <strong class="small">Areas of interest</strong>
-                            <span class="muted small">AI • Fintech • Cybersecurity • IoT • Women in Tech</span>
-                        </div>
+                    <div class="section-divider"></div>
 
-                        <div class="cta" style="margin-top:12px">
-                            <a class="btn primary" href="#projects">View Projects</a>
-                            <a class="btn" href="#education">Education & Research</a>
-                            <a class="btn" href="#contact">Get in touch</a>
-                        </div>
+                    <div class="interests-list">
+                        <span class="interest-badge">AI & Machine Learning</span>
+                        <span class="interest-badge">Fintech Solutions</span>
+                        <span class="interest-badge">Data Engineering</span>
+                        <span class="interest-badge">Analytics</span>
+                        <span class="interest-badge">IoT</span>
+                        <span class="interest-badge">Women in Tech</span>
                     </div>
 
-                    <div style="width:300px;min-width:220px">
-                        <div class="panel" style="padding:16px;">
-                            <h3 style="margin-top:0">Snapshot</h3>
-                            <p class="small muted">Diploma: UICT — Information Technology for Science</p>
-                            <p class="small muted">Certificate: Refactory Academy — Software Engineering</p>
-                            <p class="small muted">Ongoing: Nexford University — BBA (AI & Finance)</p>
-
-                            <div style="margin-top:12px">
-                                <div class="small muted">Community & Events</div>
-                                <div class="meta" style="margin-top:8px;">
-                                    <span class="tag">Hackathons</span>
-                                    <span class="tag">SheCode / SheBank</span>
-                                    <span class="tag">Research</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="cta">
+                        <a class="btn primary" href="#projects">View Projects</a>
+                        <a class="btn" href="#education">Education & Research</a>
+                        <a class="btn" href="public/Drichiru_Faith_Resume.pdf" target="_blank" download>Download Resume</a>
+                        <a class="btn" href="#contact">Get in touch</a>
                     </div>
                 </div>
 
-                <div class="panel" id="projects" style="margin-top:18px">
+                <div class="panel" id="projects">
                     <div class="section-title">
-                        <h3 style="margin:0">Selected Projects</h3>
-                        <a class="small muted" href="#contact">See more on request</a>
+                        <h3>Selected Projects</h3>
+                        <span class="badge">Portfolio</span>
                     </div>
 
-                    <div class="grid projects" style="margin-top:12px">
+                    <div class="projects">
+                        <article class="card">
+                            <h3>ASR (Automatic Speech Recognition) System</h3>
+                            <p>Built an intelligent speech-to-text system using modern AI/ML techniques. Features real-time transcription, multi-language support, and noise reduction for accurate voice recognition in various environments.</p>
+                            <div class="meta">
+                                <span class="tag">AI/ML</span>
+                                <span class="tag">Speech Recognition</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">NLP</span>
+                            </div>
+                        </article>
+
                         <article class="card">
                             <h3>Electronic NID Registration System</h3>
                             <p>Designed and built a digital registration system for national identity capturing — focused on data validation, workflow design, and secure storage practices for large administrative processes.</p>
@@ -322,13 +722,13 @@
                     </div>
                 </div>
 
-                <div class="panel" id="education" style="margin-top:18px">
+                <div class="panel" id="education" style="margin-top:32px">
                     <div class="section-title">
-                        <h3 style="margin:0">Education & Experience</h3>
-                        <span class="muted small">Ongoing learning & practical work</span>
+                        <h3>Education & Experience</h3>
+                        <span class="badge">Journey</span>
                     </div>
 
-                    <div class="timeline" style="margin-top:12px">
+                    <div class="timeline">
                         <div class="item">
                             <strong>Diploma — UICT</strong>
                             <div class="small muted">Information Technology for Science — Built Electronic NID Registration System</div>
@@ -345,70 +745,97 @@
                         </div>
 
                         <div class="item">
+                            <strong>Data Engineering & Analytics Course (Ongoing)</strong>
+                            <div class="small muted">Advanced training in data pipelines, analytics, and business intelligence</div>
+                        </div>
+
+                        <div class="item">
                             <strong>Hackathons & Community</strong>
                             <div class="small muted">SheCode, SheBank and other innovation events — focus on inclusive fintech and women in tech empowerment</div>
                         </div>
                     </div>
-                    <div class="cta" style="margin-top:12px">
-    <a class="btn primary" href="#projects">View Projects</a>
-    <a class="btn" href="#education">Education & Research</a>
-    
-    <a class="btn" href="/Drichiru_Faith_Resume.pdf" target="_blank" download>
-  Download Resume (PDF)
-</a>
- 
-    
-    <a class="btn" href="#contact">Get in touch</a>
-</div>
                 </div>
             </section>
 
             <aside>
                 <div class="panel">
-                    <h3 style="margin-top:0">Technical Skills</h3>
-                    <div style="margin-top:10px" class="stack">
+                    <h3>Technical Skills</h3>
+                    <div class="stack">
                         <span class="skill">JavaScript</span>
                         <span class="skill">Python</span>
                         <span class="skill">HTML & CSS</span>
                         <span class="skill">Node.js</span>
+                        <span class="skill">React Native</span>
                         <span class="skill">Databases</span>
                         <span class="skill">Git</span>
                         <span class="skill">AI / ML</span>
-                        <span class="skill">Cybersecurity</span>
+                        <span class="skill">Data Analytics</span>
                     </div>
                 </div>
 
-                <div class="panel" style="margin-top:16px">
-                    <h3 style="margin-top:0">Interests</h3>
-                    <p class="muted small">AI & Finance, Fintech, Cybersecurity, IoT, Digital Inclusion, Women-in-Tech</p>
+                <div class="panel">
+                    <h3>Snapshot</h3>
+                    <div class="snapshot-grid">
+                        <div class="snapshot-item">
+                            <strong>Education</strong>
+                            <p>UICT Diploma • Refactory Certificate • Nexford BBA (Ongoing)</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <strong>Focus Areas</strong>
+                            <p>AI, Fintech, Data Engineering, Analytics</p>
+                        </div>
+                        <div class="snapshot-item">
+                            <strong>Community</strong>
+                            <p>Hackathons, SheCode, SheBank, Women in Tech</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="panel" style="margin-top:16px" id="contact">
-                    <h3 style="margin-top:0">Contact</h3>
+                <div class="panel" id="contact">
+                    <h3>Contact</h3>
                     <p class="small muted">Open to collaboration, mentorship, research inquiries and speaking opportunities.</p>
 
-                    <div style="margin-top:10px" class="small muted">
-                        Email: <a class="link" href="mailto:faithdrichiru@gmail.com">faithdrichiru@gmail.com</a>
+                    <div style="margin-top:16px" class="small muted">
+                        Email: <a href="mailto:faithdrichiru@gmail.com" style="color:var(--accent-gold);text-decoration:none;font-weight:600">faithdrichiru@gmail.com</a>
                     </div>
 
-                    <form style="margin-top:12px;display:flex;flex-direction:column;gap:8px" action=https://formspree.io/f/myzvogky method="post">
-                        <input name="name" placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);background:rgba(255,255,255,0.02);color:inherit" />
-                        <input name="email" placeholder="Your email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);background:rgba(255,255,255,0.02);color:inherit" />
-                        <textarea name="message" placeholder="Brief message" rows="4" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);background:rgba(255,255,255,0.02);color:inherit"></textarea>
-                        <div style="display:flex;gap:8px">
-                            <button type="submit" class="btn primary" style="border:0">Send</button>
+                    <form id="contactForm" style="margin-top:20px;display:flex;flex-direction:column;gap:12px" action="https://formspree.io/f/myzvogky" method="POST">
+                        <input name="name" required placeholder="Your name" />
+                        <input name="email" type="email" required placeholder="Your email" />
+                        <textarea name="message" required placeholder="Brief message" rows="4"></textarea>
+                        <div id="formStatus"></div>
+                        <div style="display:flex;gap:10px">
+                            <button type="submit" class="btn primary" style="border:0">Send Message</button>
                             <button type="reset" class="btn" style="border:0">Reset</button>
                         </div>
                     </form>
                 </div>
-                
             </aside>
         </main>
 
         <footer>
-            
-            <div style="margin-top:6px" class="muted small">© Drichiru Faith — Built with focus on accessibility and simplicity.</div>
+            <div class="muted small">© 2024 Drichiru Faith — Crafted with elegance and precision.</div>
         </footer>
     </div>
+
+    <script>
+        // Add intersection observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.card, .panel, .timeline .item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
