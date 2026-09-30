@@ -1,859 +1,223 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Drichiru Faith - Software Engineer specializing in AI, Fintech, Data Engineering and Analytics" />
-    <title>Drichiru Faith — Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root{
-            --bg-primary:#faf8f5;
-            --bg-secondary:#f5f2ed;
-            --bg-card:#ffffff;
-            --text-primary:#2c2416;
-            --text-secondary:#5a5144;
-            --text-muted:#8a7f6f;
-            --accent-gold:#c9a961;
-            --accent-rose:#d4a5a5;
-            --accent-sage:#8b9d83;
-            --border-subtle:rgba(201,169,97,0.2);
-            --shadow-sm: 0 2px 8px rgba(44,36,22,0.08);
-            --shadow-md: 0 8px 24px rgba(44,36,22,0.12);
-            --shadow-lg: 0 16px 40px rgba(44,36,22,0.15);
-            --radius:16px;
-            --max:1200px;
-        }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Drichiru Faith - Ugandan technology professional working in software, AI, data and fintech" />
+<title>Drichiru Faith — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#f5f6f3; --paper:#ffffff; --ink:#15171a; --muted:#545a60;
+  --line:#d7dad4; --mark:#f5b800; --mark-deep:#8a6500;
+  --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Bricolage Grotesque',system-ui,sans-serif;background:var(--ground);color:var(--ink);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.1;letter-spacing:-.02em}
 
-        *{
-            box-sizing:border-box;
-            margin:0;
-            padding:0;
-        }
-        
-        html{
-            scroll-behavior:smooth;
-            font-size:16px;
-        }
-        
-        html,body{height:100%}
-        
-        body{
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 50%, #fdfbf7 100%);
-            color:var(--text-primary);
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            line-height:1.7;
-            padding:0;
-            position:relative;
-            overflow-x:hidden;
-        }
-        
-        body::before{
-            content:'';
-            position:fixed;
-            top:0;
-            left:0;
-            right:0;
-            bottom:0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(201,169,97,0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(212,165,165,0.05) 0%, transparent 50%);
-            pointer-events:none;
-            z-index:0;
-        }
-        
-        body::after{
-            content:'';
-            position:fixed;
-            top:-50%;
-            right:-10%;
-            width:600px;
-            height:600px;
-            background:radial-gradient(circle, rgba(201,169,97,0.08) 0%, transparent 70%);
-            border-radius:50%;
-            pointer-events:none;
-            animation:float 25s ease-in-out infinite;
-            z-index:0;
-        }
-        
-        @keyframes float{
-            0%,100%{transform:translate(0,0) scale(1)}
-            33%{transform:translate(-30px,50px) scale(1.1)}
-            66%{transform:translate(30px,-30px) scale(0.9)}
-        }
-        
-        @keyframes fadeInUp{
-            from{opacity:0;transform:translateY(30px)}
-            to{opacity:1;transform:translateY(0)}
-        }
-        
-        @keyframes slideIn{
-            from{opacity:0;transform:translateX(-30px)}
-            to{opacity:1;transform:translateX(0)}
-        }
-        
-        .container{
-            max-width:var(--max);
-            margin:0 auto;
-            padding:40px 24px;
-            position:relative;
-            z-index:1;
-        }
+/* Top bar */
+.bar{position:sticky;top:0;z-index:10;background:rgba(245,246,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.bar strong{font-weight:700}
+.bar nav{display:flex;gap:24px}
+.bar nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--muted);padding:6px 0;border-bottom:2px solid transparent}
+.bar nav a:hover{color:var(--ink);border-color:var(--mark)}
 
-        /* Typography */
-        h1,h2,h3,h4{
-            font-family: 'Playfair Display', Georgia, serif;
-            font-weight:700;
-            letter-spacing:0.5px;
-        }
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 280px;gap:56px;align-items:center;padding:88px 0 96px}
+.hero h1{font-size:clamp(3.2rem,9vw,6.6rem);font-weight:800;letter-spacing:-.045em;line-height:.95}
+.hero .role{font-size:1.35rem;font-weight:500;margin-top:20px}
+.hero .lead{color:var(--muted);max-width:56ch;margin-top:16px}
+.focus{margin-top:20px;font-size:15px;color:var(--muted);max-width:56ch}
+.focus b{color:var(--ink);font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;padding:13px 22px;border:2px solid var(--ink);font-weight:700;font-size:15px;text-decoration:none;border-radius:4px;background:transparent;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s}
+.btn:hover{background:var(--ink);color:var(--ground)}
+.btn.solid{background:var(--mark);border-color:var(--ink)}
+.btn.solid:hover{background:var(--ink);color:var(--mark)}
+.photo{position:relative;justify-self:end;width:100%;max-width:280px}
+.photo::before{content:'';position:absolute;inset:12px -12px -12px 12px;border:2px solid var(--mark);border-radius:50%}
+.photo .frame{position:relative;aspect-ratio:1;overflow:hidden;border-radius:50%;border:2px solid var(--ink);background:var(--line)}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;transform:scale(1.55);transform-origin:50% 30%}
 
-        /* Header */
-        header{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:24px 0 48px;
-            animation:slideIn 0.8s ease-out;
-            border-bottom:2px solid var(--border-subtle);
-            margin-bottom:48px;
-        }
+/* Sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.head{display:grid;grid-template-columns:200px 1fr;gap:56px}
+.head > h2{font-size:1.9rem;font-weight:800;position:sticky;top:84px;align-self:start}
 
-        .brand{
-            display:flex;
-            gap:20px;
-            align-items:center;
-        }
+/* Projects */
+.project{display:grid;grid-template-columns:260px 1fr;gap:28px;padding:0 0 40px;margin-bottom:40px;border-bottom:1px solid var(--line)}
+.project:last-child{border:0;margin:0;padding:0}
+.project figure{aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:var(--line)}
+.project img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.project.noimg{grid-template-columns:1fr}
+.project.noimg figure{display:none}
+.project h3{font-size:1.4rem;font-weight:700}
+.project p{color:var(--muted);margin-top:10px;max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;list-style:none}
+.tags li{font-size:13px;font-weight:500;padding:3px 10px;border:1px solid var(--ink);border-radius:99px}
 
-        .avatar{
-            width:80px;
-            height:80px;
-            border-radius:50%;
-            border:3px solid var(--accent-gold);
-            box-shadow:0 8px 24px rgba(201,169,97,0.25), 0 0 0 8px rgba(201,169,97,0.08);
-            object-fit:cover;
-            transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .avatar:hover{
-            transform:scale(1.08) rotate(5deg);
-            box-shadow:0 12px 32px rgba(201,169,97,0.35), 0 0 0 12px rgba(201,169,97,0.12);
-        }
+/* Timeline */
+.tl{list-style:none;border-left:2px solid var(--ink);margin-left:6px}
+.tl li{position:relative;padding:0 0 32px 28px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:'';position:absolute;left:-8px;top:8px;width:14px;height:14px;background:var(--mark);border:2px solid var(--ink);border-radius:50%}
+.tl h3{font-size:1.1rem;font-weight:700;line-height:1.3}
+.tl p{color:var(--muted);margin-top:4px;max-width:60ch}
 
-        .brand-text h1{
-            font-size:28px;
-            margin:0 0 4px 0;
-            background:linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-rose) 100%);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-            background-clip:text;
-        }
-        
-        .brand-text p{
-            font-size:14px;
-            color:var(--text-secondary);
-            font-weight:500;
-            letter-spacing:0.5px;
-        }
+/* Skills */
+.skills{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.skills li{padding:8px 16px;background:var(--paper);border:1px solid var(--line);border-radius:4px;font-weight:500}
 
-        nav{
-            display:flex;
-            gap:8px;
-            align-items:center;
-        }
-        
-        nav a{
-            color:var(--text-secondary);
-            text-decoration:none;
-            font-weight:600;
-            font-size:14px;
-            padding:10px 20px;
-            border-radius:12px;
-            transition:all 0.3s ease;
-            position:relative;
-            letter-spacing:0.3px;
-        }
-        
-        nav a::before{
-            content:'';
-            position:absolute;
-            bottom:0;
-            left:50%;
-            width:0;
-            height:2px;
-            background:var(--accent-gold);
-            transition:all 0.3s ease;
-            transform:translateX(-50%);
-        }
-        
-        nav a:hover{
-            color:var(--text-primary);
-            background:rgba(201,169,97,0.08);
-        }
-        
-        nav a:hover::before{
-            width:60%;
-        }
-        
-        nav a.primary{
-            background:linear-gradient(135deg, var(--accent-gold), #d4b574);
-            color:#ffffff;
-            font-weight:700;
-            box-shadow:0 4px 16px rgba(201,169,97,0.3);
-        }
-        
-        nav a.primary:hover{
-            box-shadow:0 6px 24px rgba(201,169,97,0.45);
-            transform:translateY(-2px);
-        }
-        
-        nav a.primary::before{
-            display:none;
-        }
+/* Contact */
+.contact{background:var(--ink);color:var(--ground);border:0}
+.contact .head > h2{color:var(--mark)}
+.contact .big{font-size:clamp(1.3rem,3.4vw,2.1rem);font-weight:700;letter-spacing:-.02em;word-break:break-word;color:var(--ground);text-decoration-color:var(--mark);text-decoration-thickness:3px;text-underline-offset:6px}
+.contact .note{color:#b9bdb8;margin:12px 0 32px;max-width:52ch}
+form{display:grid;gap:14px;max-width:520px}
+label{font-size:15px;font-weight:500;display:grid;gap:6px}
+input,textarea{width:100%;padding:12px 14px;border:2px solid #4a4f54;border-radius:4px;background:#1f2226;color:var(--ground);font:inherit;font-size:16px}
+input:focus,textarea:focus{outline:none;border-color:var(--mark)}
+textarea{min-height:130px;resize:vertical}
+.contact .btn{border-color:var(--mark);color:var(--mark)}
+.contact .btn:hover{background:var(--mark);color:var(--ink)}
+.contact .btn.solid{background:var(--mark);color:var(--ink)}
+.contact .btn.solid:hover{background:var(--ground);border-color:var(--ground)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+#formStatus{font-weight:500;min-height:1.4em}
+#formStatus.ok{color:#8fe0a8}#formStatus.err{color:#ff9d9d}
+footer{background:var(--ink);color:#9a9f9a;font-size:14px;padding:0 0 40px}
 
-        /* Main Layout */
-        main{
-            display:grid;
-            grid-template-columns:1fr 380px;
-            gap:32px;
-            align-items:start;
-        }
+/* One entrance moment: the hero */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero > div > *{animation:rise .6s ease-out both}
+.hero > div > *:nth-child(2){animation-delay:.08s}
+.hero > div > *:nth-child(3){animation-delay:.16s}
+.hero > div > *:nth-child(n+4){animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-        @media (max-width:1024px){
-            main{grid-template-columns:1fr}
-            header{flex-direction:column;align-items:flex-start;gap:20px}
-            nav{flex-wrap:wrap}
-        }
-
-        /* Panels */
-        .panel{
-            background:var(--bg-card);
-            backdrop-filter:blur(10px);
-            border-radius:var(--radius);
-            padding:32px;
-            box-shadow:var(--shadow-md);
-            border:1px solid var(--border-subtle);
-            transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position:relative;
-            overflow:hidden;
-        }
-        
-        .panel::before{
-            content:'';
-            position:absolute;
-            top:0;
-            left:-100%;
-            width:100%;
-            height:100%;
-            background:linear-gradient(90deg, transparent, rgba(201,169,97,0.05), transparent);
-            transition:left 0.6s ease;
-        }
-        
-        .panel:hover::before{
-            left:100%;
-        }
-        
-        .panel:hover{
-            transform:translateY(-4px);
-            box-shadow:var(--shadow-lg);
-            border-color:rgba(201,169,97,0.35);
-        }
-
-        /* Hero Section */
-        .hero{
-            margin-bottom:32px;
-        }
-        
-        .hero h2{
-            font-size:42px;
-            line-height:1.2;
-            margin:0 0 16px 0;
-            background:linear-gradient(135deg, var(--text-primary) 0%, var(--accent-rose) 100%);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-            background-clip:text;
-        }
-        
-        .hero .lead{
-            font-size:18px;
-            line-height:1.8;
-            color:var(--text-secondary);
-            margin:0 0 24px 0;
-        }
-        
-        .section-divider{
-            height:2px;
-            background:linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            margin:24px 0;
-            opacity:0.4;
-        }
-        
-        .section-title{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-bottom:20px;
-        }
-        
-        .section-title h3{
-            font-size:24px;
-            margin:0;
-            color:var(--text-primary);
-        }
-        
-        .section-title .badge{
-            font-size:12px;
-            padding:6px 12px;
-            background:rgba(201,169,97,0.15);
-            color:var(--accent-gold);
-            border-radius:20px;
-            font-weight:600;
-            letter-spacing:0.5px;
-            text-transform:uppercase;
-            border:1px solid rgba(201,169,97,0.25);
-        }
-
-        /* Buttons */
-        .cta{
-            display:flex;
-            gap:12px;
-            flex-wrap:wrap;
-            margin-top:24px;
-        }
-        
-        .btn{
-            background:var(--bg-secondary);
-            color:var(--text-secondary);
-            border:1px solid var(--border-subtle);
-            padding:12px 24px;
-            border-radius:12px;
-            text-decoration:none;
-            font-weight:600;
-            font-size:14px;
-            display:inline-flex;
-            gap:8px;
-            align-items:center;
-            transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor:pointer;
-            letter-spacing:0.3px;
-        }
-        
-        .btn:hover{
-            background:rgba(201,169,97,0.12);
-            color:var(--text-primary);
-            transform:translateY(-2px);
-            box-shadow:var(--shadow-sm);
-            border-color:var(--accent-gold);
-        }
-        
-        .btn.primary{
-            background:linear-gradient(135deg, var(--accent-gold), #d4b574);
-            color:#ffffff;
-            border:none;
-            font-weight:700;
-            box-shadow:0 8px 24px rgba(201,169,97,0.25);
-        }
-        
-        .btn.primary:hover{
-            box-shadow:0 12px 32px rgba(201,169,97,0.4);
-            transform:translateY(-3px);
-        }
-
-        /* Project Cards */
-        .projects{
-            display:grid;
-            gap:20px;
-        }
-        
-        .card{
-            background:var(--bg-card);
-            border-radius:14px;
-            padding:0;
-            border:1px solid var(--border-subtle);
-            transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor:pointer;
-            position:relative;
-            overflow:hidden;
-        }
-        
-        .card-image{
-            width:100%;
-            height:200px;
-            object-fit:cover;
-            object-position:center top;
-            border-radius:14px 14px 0 0;
-            transition:transform 0.4s ease;
-        }
-        
-        .card:hover .card-image{
-            transform:scale(1.05);
-        }
-        
-        .card-content{
-            padding:24px;
-        }
-        
-        .card::after{
-            content:'';
-            position:absolute;
-            top:0;
-            left:0;
-            right:0;
-            height:3px;
-            background:linear-gradient(90deg, var(--accent-gold), var(--accent-rose));
-            transform:scaleX(0);
-            transition:transform 0.4s ease;
-        }
-        
-        .card:hover::after{
-            transform:scaleX(1);
-        }
-        
-        .card:hover{
-            background:var(--bg-secondary);
-            border-color:rgba(201,169,97,0.5);
-            transform:translateX(8px);
-            box-shadow:var(--shadow-md);
-        }
-        
-        .card h3{
-            margin:0 0 12px 0;
-            font-size:20px;
-            color:var(--accent-gold);
-            transition:color 0.3s ease;
-        }
-        
-        .card:hover h3{
-            color:var(--accent-rose);
-        }
-        
-        .card p{
-            margin:0;
-            color:var(--text-secondary);
-            font-size:15px;
-            line-height:1.7;
-        }
-
-        .meta{
-            display:flex;
-            gap:8px;
-            margin-top:16px;
-            flex-wrap:wrap;
-        }
-        
-        .tag{
-            background:rgba(201,169,97,0.12);
-            padding:6px 12px;
-            border-radius:8px;
-            font-weight:600;
-            font-size:12px;
-            color:var(--accent-gold);
-            border:1px solid rgba(201,169,97,0.25);
-            transition:all 0.3s ease;
-            letter-spacing:0.3px;
-        }
-        
-        .tag:hover{
-            background:rgba(201,169,97,0.2);
-            border-color:rgba(201,169,97,0.45);
-            transform:translateY(-2px);
-        }
-
-        /* Sidebar */
-        aside .panel + .panel{
-            margin-top:24px;
-        }
-        
-        aside h3{
-            font-size:20px;
-            margin:0 0 20px 0;
-            color:var(--accent-gold);
-        }
-        
-        .stack{
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
-        }
-        
-        .skill{
-            background:linear-gradient(135deg, rgba(201,169,97,0.12), rgba(212,165,165,0.1));
-            padding:10px 16px;
-            border-radius:24px;
-            font-weight:600;
-            font-size:13px;
-            color:var(--text-secondary);
-            border:1px solid var(--border-subtle);
-            transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor:default;
-            letter-spacing:0.3px;
-        }
-        
-        .skill:hover{
-            background:linear-gradient(135deg, rgba(201,169,97,0.25), rgba(212,165,165,0.2));
-            color:var(--accent-gold);
-            border-color:rgba(201,169,97,0.45);
-            transform:translateY(-3px) scale(1.05);
-            box-shadow:var(--shadow-sm);
-        }
-
-        /* Timeline */
-        .timeline{
-            display:flex;
-            flex-direction:column;
-            gap:16px;
-        }
-        
-        .timeline .item{
-            padding:20px;
-            border-radius:12px;
-            background:var(--bg-secondary);
-            border-left:3px solid var(--accent-gold);
-            border-right:1px solid var(--border-subtle);
-            border-top:1px solid var(--border-subtle);
-            border-bottom:1px solid var(--border-subtle);
-            transition:all 0.3s ease;
-        }
-        
-        .timeline .item:hover{
-            background:var(--bg-card);
-            border-left-color:var(--accent-rose);
-            transform:translateX(4px);
-            box-shadow:var(--shadow-sm);
-        }
-        
-        .timeline .item strong{
-            display:block;
-            color:var(--text-primary);
-            font-size:16px;
-            margin-bottom:8px;
-        }
-        
-        .timeline .item .small{
-            color:var(--text-muted);
-            font-size:14px;
-            line-height:1.6;
-        }
-
-        /* Form */
-        input, textarea{
-            width:100%;
-            padding:14px 16px;
-            border-radius:12px;
-            border:1px solid var(--border-subtle);
-            background:var(--bg-secondary);
-            color:var(--text-primary);
-            font-size:14px;
-            transition:all 0.3s ease;
-            font-family:inherit;
-        }
-        
-        input:focus, textarea:focus{
-            outline:none;
-            border-color:var(--accent-gold);
-            background:var(--bg-card);
-            box-shadow:0 0 0 3px rgba(201,169,97,0.12);
-        }
-        
-        input::placeholder, textarea::placeholder{
-            color:var(--text-muted);
-        }
-        
-        textarea{
-            resize:vertical;
-            min-height:120px;
-        }
-
-        /* Footer */
-        footer{
-            margin-top:64px;
-            padding-top:32px;
-            border-top:2px solid var(--border-subtle);
-            text-align:center;
-            color:var(--text-muted);
-            font-size:14px;
-        }
-
-        /* Utilities */
-        .muted{color:var(--text-muted)}
-        .small{font-size:14px}
-        
-        #formStatus{
-            padding:12px 16px;
-            border-radius:10px;
-            font-size:14px;
-            font-weight:600;
-            display:none;
-        }
-        
-        .snapshot-grid{
-            display:grid;
-            gap:16px;
-            margin-top:16px;
-        }
-        
-        .snapshot-item{
-            padding:12px;
-            background:var(--bg-secondary);
-            border-radius:10px;
-            border-left:2px solid var(--accent-gold);
-        }
-        
-        .snapshot-item strong{
-            display:block;
-            color:var(--accent-gold);
-            font-size:13px;
-            margin-bottom:4px;
-            text-transform:uppercase;
-            letter-spacing:0.5px;
-        }
-        
-        .snapshot-item p{
-            color:var(--text-secondary);
-            font-size:14px;
-            margin:0;
-        }
-        
-        .interests-list{
-            display:flex;
-            gap:8px;
-            flex-wrap:wrap;
-            margin-top:12px;
-        }
-        
-        .interest-badge{
-            padding:8px 14px;
-            background:rgba(201,169,97,0.1);
-            border:1px solid rgba(201,169,97,0.25);
-            border-radius:20px;
-            font-size:13px;
-            color:var(--text-secondary);
-            font-weight:500;
-        }
-    </style>
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:48px;padding:56px 0 64px}
+  .photo{max-width:260px;justify-self:start}
+  .head{grid-template-columns:1fr;gap:28px}
+  .head > h2{position:static}
+  .project{grid-template-columns:1fr}
+  .bar nav{gap:16px}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="brand">
-                <img src="faith.jpg" alt="Drichiru Faith" class="avatar" />
-                <div class="brand-text">
-                    <h1>Drichiru Faith</h1>
-                    <p>Rising technologist • AI & Fintech • Software Engineer • Data Analytics</p>
-                </div>
-            </div>
+<header class="bar">
+  <div class="wrap">
+    <strong>Drichiru Faith</strong>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-            <nav>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#contact" class="primary">Contact</a>
-            </nav>
-        </header>
-
-        <main>
-            <section>
-                <div class="panel hero" id="about">
-                    <h2>Hi — I'm Drichiru Faith</h2>
-                    <p class="lead">A technologist and innovation enthusiast focused on software development, data engineering, analytics, and building inclusive fintech solutions. Currently studying BBA (AI & Finance) at Nexford University.</p>
-
-                    <div class="section-divider"></div>
-
-                    <div class="interests-list">
-                        <span class="interest-badge">AI & Machine Learning</span>
-                        <span class="interest-badge">Fintech Solutions</span>
-                        <span class="interest-badge">Data Engineering</span>
-                        <span class="interest-badge">Analytics</span>
-                        <span class="interest-badge">IoT</span>
-                        <span class="interest-badge">Women in Tech</span>
-                    </div>
-
-                    <div class="cta">
-                        <a class="btn primary" href="#projects">View Projects</a>
-                        <a class="btn" href="#education">Education & Research</a>
-                        <a class="btn" href="public/Drichiru_Faith_Resume.pdf" target="_blank" download>Download Resume</a>
-                        <a class="btn" href="#contact">Get in touch</a>
-                    </div>
-                </div>
-
-                <div class="panel" id="projects">
-                    <div class="section-title">
-                        <h3>Selected Projects</h3>
-                    </div>
-
-                    <div class="projects">
-                        <article class="card">
-                            <img src="images/projects/ASR.jpeg" alt="ASR System" class="card-image" onerror="this.style.display='none'">
-                            <div class="card-content">
-                                <h3>ASR (Automatic Speech Recognition) System</h3>
-                                <p>Built an intelligent speech-to-text system using modern AI/ML techniques. Features real-time transcription, multi-language support, and noise reduction for accurate voice recognition in various environments.</p>
-                                <div class="meta">
-                                    <span class="tag">AI/ML</span>
-                                    <span class="tag">Speech Recognition</span>
-                                    <span class="tag">Python</span>
-                                    <span class="tag">NLP</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <img src="images/projects/grocery.jpeg" alt="Grocery POS System" class="card-image" onerror="this.style.display='none'">
-                            <div class="card-content">
-                                <h3>Grocery POS System</h3>
-                                <p>Point of Sale system developed during Refactory to handle inventory, transactions, and receipts — emphasized usability and reliable business workflows for small retailers.</p>
-                                <div class="meta">
-                                    <span class="tag">POS</span>
-                                    <span class="tag">UX</span>
-                                    <span class="tag">Backend</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <img src="images/projects/shebanks.jpeg" alt="SheBank Project" class="card-image" onerror="this.style.display='none'">
-                            <div class="card-content">
-                                <h3>SheBank — Hackathon Project</h3>
-                                <p>Collaborated on SheBank, a platform enabling SACCOs to register and securely save funds with official banking institutions—aimed at improving transparency and financial inclusion.</p>
-                                <div class="meta">
-                                    <span class="tag">Fintech</span>
-                                    <span class="tag">Security</span>
-                                    <span class="tag">Community Impact</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <img src="images/projects/research.jpg" alt="AI & Fintech Research" class="card-image" onerror="this.style.display='none'">
-                            <div class="card-content">
-                                <h3>Academic Research — AI & Fintech</h3>
-                                <p>Explores intersections between AI, fintech, business innovation and digital transformation. Work includes literature reviews, prototypes, and applied experiments.</p>
-                                <div class="meta">
-                                    <span class="tag">Research</span>
-                                    <span class="tag">AI</span>
-                                    <span class="tag">Fintech</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="panel" id="education" style="margin-top:32px">
-                    <div class="section-title">
-                        <h3>Education & Experience</h3>
-                        <span class="badge">Journey</span>
-                    </div>
-
-                    <div class="timeline">
-                        <div class="item">
-                            <strong>Diploma — UICT</strong>
-                            <div class="small muted">Information Technology for Science — Built Electronic NID Registration System</div>
-                        </div>
-
-                        <div class="item">
-                            <strong>Certificate — Refactory Academy</strong>
-                            <div class="small muted">Software Engineering — Developed a Grocery POS system and hands-on full-stack training</div>
-                        </div>
-
-                        <div class="item">
-                            <strong>BBA (AI & Finance) — Nexford University (Ongoing)</strong>
-                            <div class="small muted">Research projects at the intersection of AI, fintech and business innovation</div>
-                        </div>
-
-                        <div class="item">
-                            <strong>Data Engineering & Analytics Course</strong>
-                            <div class="small muted">Completed training in data pipelines, analytics, and business intelligence</div>
-                        </div>
-
-                        <div class="item">
-                            <strong>Hackathons & Community</strong>
-                            <div class="small muted">SheCode, SheBank and other innovation events — focus on inclusive fintech and women in tech empowerment</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <aside>
-                <div class="panel">
-                    <h3>Technical Skills</h3>
-                    <div class="stack">
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">Python</span>
-                        <span class="skill">HTML & CSS</span>
-                        <span class="skill">Node.js</span>
-                        <span class="skill">React Native</span>
-                        <span class="skill">Databases</span>
-                        <span class="skill">Git</span>
-                        <span class="skill">AI / ML</span>
-                        <span class="skill">Data Analytics</span>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>Snapshot</h3>
-                    <div class="snapshot-grid">
-                        <div class="snapshot-item">
-                            <strong>Education</strong>
-                            <p>UICT Diploma • Refactory Certificate • Nexford BBA (Ongoing)</p>
-                        </div>
-                        <div class="snapshot-item">
-                            <strong>Focus Areas</strong>
-                            <p>AI, Fintech, Data Engineering, Analytics</p>
-                        </div>
-                        <div class="snapshot-item">
-                            <strong>Community</strong>
-                            <p>Hackathons, SheCode, SheBank, Women in Tech</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel" id="contact">
-                    <h3>Contact</h3>
-                    <p class="small muted">Open to collaboration, mentorship, research inquiries and speaking opportunities.</p>
-
-                    <div style="margin-top:16px" class="small muted">
-                        Email: <a href="mailto:faithdrichiru@gmail.com" style="color:var(--accent-gold);text-decoration:none;font-weight:600">faithdrichiru@gmail.com</a>
-                    </div>
-
-                    <form id="contactForm" style="margin-top:20px;display:flex;flex-direction:column;gap:12px" action="https://formspree.io/f/myzvogky" method="POST">
-                        <input name="name" required placeholder="Your name" />
-                        <input name="email" type="email" required placeholder="Your email" />
-                        <textarea name="message" required placeholder="Brief message" rows="4"></textarea>
-                        <div id="formStatus"></div>
-                        <div style="display:flex;gap:10px">
-                            <button type="submit" class="btn primary" style="border:0">Send Message</button>
-                            <button type="reset" class="btn" style="border:0">Reset</button>
-                        </div>
-                    </form>
-                </div>
-            </aside>
-        </main>
-
-        <footer>
-            <div class="muted small">© 2024 Drichiru Faith — Crafted with elegance and precision.</div>
-        </footer>
+<main>
+  <div class="wrap">
+    <div class="hero" id="about">
+      <div>
+        <h1>Drichiru Faith</h1>
+        <p class="role">Software developer and technology innovator in AI, data and fintech.</p>
+        <p class="lead">A Ugandan technology and business professional with a background in IT and software development, currently studying a BBA in AI &amp; Finance at Nexford University. I am a team member of Tuwaye AI, an inclusive speech-technology startup, and I build software that solves practical problems for people and communities.</p>
+        <p class="focus"><b>Interested in:</b> health technology, education, accessibility, youth empowerment and African socio-economic development.</p>
+        <div class="cta">
+          <a class="btn solid" href="public/Drichiru_Faith_Resume.pdf" target="_blank" download>Download resume</a>
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="photo"><div class="frame"><img src="EAZL0510.jpg" alt="Portrait of Drichiru Faith" /></div></div>
     </div>
+  </div>
 
-    <script>
-        // Add intersection observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.card, .panel, .timeline .item').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+  <section id="projects">
+    <div class="wrap head">
+      <h2>Projects</h2>
+      <div>
+        <article class="project"><figure><img src="images/projects/ASR.jpeg" alt="Tuwaye AI" onerror="this.closest('.project').classList.add('noimg')"></figure><div><h3>Tuwaye AI</h3><p>An inclusive speech-technology startup for people with speech and communication difficulties. Combines speech recognition and analysis, multilingual support, personalised exercises and remote caregiver or therapist monitoring. Part of MIIC Startup Hatch 1.0.</p><ul class="tags"><li>AI</li><li>Speech recognition</li><li>Accessibility</li><li>Startup</li></ul></div></article>
+        <article class="project"><figure><img src="images/projects/grocery.jpeg" alt="Grocery POS system" onerror="this.closest('.project').classList.add('noimg')"></figure><div><h3>Grocery POS system</h3><p>A point-of-sale system built at Refactory to handle inventory, transactions and receipts, with an emphasis on usability for small retailers.</p><ul class="tags"><li>POS</li><li>UX</li><li>Backend</li></ul></div></article>
+        <article class="project"><figure><img src="images/projects/shebanks.jpeg" alt="SheBank project" onerror="this.closest('.project').classList.add('noimg')"></figure><div><h3>SheBank (hackathon project)</h3><p>A platform that lets SACCOs register and securely save funds with official banking institutions, aimed at improving transparency and financial inclusion.</p><ul class="tags"><li>Fintech</li><li>Security</li><li>Community impact</li></ul></div></article>
+        <article class="project"><figure><img src="images/projects/research.jpg" alt="AI and fintech research" onerror="this.closest('.project').classList.add('noimg')"></figure><div><h3>Academic research in AI and fintech</h3><p>Explores the intersections of AI, fintech, business innovation and digital transformation, through literature reviews, prototypes and applied experiments.</p><ul class="tags"><li>Research</li><li>AI</li><li>Fintech</li></ul></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap head">
+      <h2>Education and experience</h2>
+      <ol class="tl">
+        <li><h3>BBA in AI &amp; Finance, Nexford University (ongoing)</h3><p>Business, finance, AI and data-informed decision making, with research at the intersection of AI, fintech and business innovation.</p></li>
+        <li><h3>Diploma in Information Technology for Science, UICT</h3><p>Built an Electronic NID Registration System. Held leadership roles including General Secretary of the Electoral Commission and of IEEE.</p></li>
+        <li><h3>Associate of Applied Science in Business, Nexford University</h3><p>Coursework completed on the way to the BBA.</p></li>
+        <li><h3>Certificate, Refactory Academy</h3><p>Software Engineering with Python, including hands-on full-stack training and the Grocery POS project.</p></li>
+        <li><h3>Certificate, Data Engineering and Analytics</h3><p>Training in data pipelines, analytics and business intelligence.</p></li>
+        <li><h3>Software &amp; AI Engineering program, Turing College</h3><p>Software and AI engineering training.</p></li>
+        <li><h3>Certificate, Virtual Assistance, Maarifasasa</h3><p>Email and calendar management, scheduling, research and remote support.</p></li>
+        <li><h3>Administrative Assistant, SCECK Consult (from 2024)</h3><p>Administrative and office support using Microsoft Office and Google Workspace.</p></li>
+        <li><h3>Groundbreaker Talents</h3><p>Talent of the Month for August, alongside AI, data engineering, leadership and entrepreneurship programs.</p></li>
+        <li><h3>Hackathons and incubation</h3><p>MIIC Startup Hatch, GirlCode Hackathon, NASA Space Apps Challenge Uganda (host), Open Data Ensemble and SheCode.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap head">
+      <h2>Skills</h2>
+      <ul class="skills"><li>Python</li><li>Django</li><li>FastAPI</li><li>JavaScript</li><li>TypeScript</li><li>React Native</li><li>Node.js</li><li>PostgreSQL</li><li>APIs</li><li>Git &amp; GitHub</li><li>HTML &amp; CSS</li><li>Data analytics</li><li>Data engineering</li><li>AI / ML</li></ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap head">
+      <h2>Contact</h2>
+      <div>
+        <a class="big" href="mailto:faithdrichiru@gmail.com">faithdrichiru@gmail.com</a>
+        <p class="note">Open to collaboration, mentorship, research inquiries and speaking opportunities.</p>
+        <form id="contactForm" action="https://formspree.io/f/myzvogky" method="POST">
+          <label>Your name<input name="name" autocomplete="name" required /></label>
+          <label>Your email<input name="email" type="email" autocomplete="email" required /></label>
+          <label>Message<textarea name="message" required></textarea></label>
+          <div id="formStatus" role="status" aria-live="polite"></div>
+          <div class="row">
+            <button type="submit" class="btn solid">Send message</button>
+            <button type="reset" class="btn">Clear form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Drichiru Faith</div></footer>
+
+<script>
+const form = document.getElementById('contactForm');
+const status = document.getElementById('formStatus');
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  status.className = ''; status.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}});
+    if (!res.ok) throw new Error();
+    form.reset(); status.className = 'ok'; status.textContent = 'Message sent. Thank you, I will reply soon.';
+  } catch {
+    status.className = 'err'; status.textContent = 'Message not sent. Try again, or email me directly.';
+  }
+});
+</script>
 </body>
 </html>
